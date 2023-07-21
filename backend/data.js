@@ -36,7 +36,7 @@ const data = {
     {
       name: 'Adidas shirt',
       slug: 'adidas-shirt',
-      image: '/attache/camilla-carvalho-l5gK18pujLE-unsplash (1).jpg',
+      image: '/attache/project-290-PTorAkUcYHg-unsplash.jpg',
       price: 25,
       countInStock: 15,
       brand: 'Adidas',
