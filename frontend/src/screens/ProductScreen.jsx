@@ -9,6 +9,9 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import getError from '../components/Util';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,7 +45,7 @@ const ProductScreen = () => {
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) }); //the get error displays the error message from the backend and is a function created in the util component
       }
 
       // setProducts(result.data);
@@ -50,10 +53,10 @@ const ProductScreen = () => {
     fetchData();
   }, [slug]);
 
-  return loading ? ( //to show loading
-    <div>Loading...</div>
+  return loading ? ( //if it is loading, perform a certain task, else use error
+    <LoadingBox /> //loading animation
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox> //error animation
   ) : (
     //if it is not loadinf or showing errors, display the product
     <div>
