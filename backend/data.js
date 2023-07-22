@@ -5,7 +5,7 @@ const data = {
       slug: 'nike-shirt',
       image: '/attache/ashkan-forouzani-S5_t6VIMClE-unsplash.jpg', //679px x 829px
       price: 120,
-      countInStock: 10,
+      countInStock: 0,
       brand: 'Nike',
       rating: 4.5,
       numReviews: 19,
