@@ -1,10 +1,26 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {
+      name: 'Femi',
+      email: 'femi@gmail.com',
+      password: bcrypt.hashSync('123456'), //to encrypt the user password
+      isAdmin: true,
+    },
+    {
+      name: 'sharon',
+      email: 'sharon@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       name: 'Nike shirt',
       category: 'Shirts',
       slug: 'nike-shirt',
-      image: '/attache/ashkan-forouzani-S5_t6VIMClE-unsplash.jpg', //679px x 829px
+      image: '/attache/ashkan-forouzani-S5_t6VIMClE-unsplash.jpg',
       price: 120,
       countInStock: 0,
       brand: 'Nike',
