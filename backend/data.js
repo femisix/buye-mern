@@ -1,8 +1,8 @@
 const data = {
   products: [
     {
-      _id: '1',
       name: 'Nike shirt',
+      category: 'Shirts',
       slug: 'nike-shirt',
       image: '/attache/ashkan-forouzani-S5_t6VIMClE-unsplash.jpg', //679px x 829px
       price: 120,
@@ -13,8 +13,8 @@ const data = {
       description: 'high quality shirt',
     },
     {
-      _id: '2',
       name: 'Nike pant',
+      category: 'Shirts',
       slug: 'nike-pant',
       image: '/attache/ivan-bogdanov-17qC7l19hMI-unsplash.jpg',
       price: 114,
@@ -25,8 +25,8 @@ const data = {
       description: 'high quality pants',
     },
     {
-      _id: '3',
       name: 'Adidas fit pant',
+      category: 'Pants',
       slug: 'adidas-fit-pant',
       image: '/attache/engin-akyurt-oXYGKCYhQOI-unsplash.jpg',
       price: 60,
@@ -37,8 +37,8 @@ const data = {
       description: 'high quality pant',
     },
     {
-      _id: '4',
       name: 'Adidas shirt',
+      category: 'Pants',
       slug: 'adidas-shirt',
       image: '/attache/project-290-PTorAkUcYHg-unsplash.jpg',
       price: 25,
