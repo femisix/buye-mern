@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
-import getError from '../components/Util';
+import getError from '../Util';
 
 const SignupScreen = () => {
   const navigate = useNavigate();

@@ -11,7 +11,7 @@ import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import getError from '../components/Util';
+import getError from '../Util';
 import { Store } from '../Store';
 
 const reducer = (state, action) => {

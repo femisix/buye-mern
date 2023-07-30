@@ -15,6 +15,8 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import SignupScreen from './screens/SignupScreen';
 import ShipppingAddressScreen from './screens/ShipppingAddressScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -24,6 +26,7 @@ function App() {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo'); //clear the localstorage from userinfo
     localStorage.removeItem('shippingAddress'); //clear the localstorage from shipping address
+    localStorage.removeItem('paymentMethod');
   };
 
   return (
@@ -82,14 +85,16 @@ function App() {
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/shipping" element={<ShipppingAddressScreen />} />
+              <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/product/:slug" element={<ProductScreen />} />
             </Routes>
           </Container>
         </main>
         <footer>
           <div className="text-center">
-            All rights reserved. created by Ajayi Olorunfemi
+            All rights reserved. Created by Ajayi Olorunfemi
           </div>
         </footer>
       </div>
