@@ -25,6 +25,17 @@ orderRouter.post(
   })
 );
 
+//this api gets the order history filtered by the user's id coming from the isAuth middleware
+orderRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+  })
+);
+
+//this api gets the order based on id as long as the user is authenticated
 orderRouter.get(
   '/:id',
   isAuth,
@@ -38,6 +49,7 @@ orderRouter.get(
   })
 );
 
+//this api uploads the order parameters into the database
 orderRouter.put(
   '/:id/pay',
   isAuth,
