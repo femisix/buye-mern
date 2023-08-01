@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import 'bootstrap/dist/css/bootstrap.min.css'; //this is to import the bootstrap directly into the index page
 import './index.css';
 import App from './App';
@@ -12,7 +13,10 @@ root.render(
   <React.StrictMode>
     <StoreProvider>
       <HelmetProvider>
-        <App />
+        <PayPalScriptProvider deferLoading={true}>
+          <App />
+        </PayPalScriptProvider>
+        {/* setting deferLoading to true will prevent paypal from loading when we load the app */}
       </HelmetProvider>
     </StoreProvider>
   </React.StrictMode>
