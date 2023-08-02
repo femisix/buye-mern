@@ -146,8 +146,8 @@ const OrderScreen = () => {
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
-              <Card.Text>
+              <Card.Title className="price">Shipping</Card.Title>
+              <Card.Text className="price">
                 <strong>Name</strong> {order.shippingAddress.fullName} <br />
                 <strong>Address</strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
@@ -165,8 +165,8 @@ const OrderScreen = () => {
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
-              <Card.Text>
+              <Card.Title className="price">Payment</Card.Title>
+              <Card.Text className="price">
                 <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
               {order.isPaid ? (
@@ -181,10 +181,10 @@ const OrderScreen = () => {
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title className="price">Items</Card.Title>
               <ListGroup variant="flush">
                 {order.orderItems.map((item) => (
-                  <ListGroup.Item key={item._id}>
+                  <ListGroup.Item key={item._id} className="card">
                     <Row className="align-items-center">
                       <Col md={6}>
                         <img
@@ -211,7 +211,7 @@ const OrderScreen = () => {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title className="price">Order Summary</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
