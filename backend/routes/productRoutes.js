@@ -9,13 +9,13 @@ productRouter.get('/', async (req, res) => {
   res.send(products);
 });
 
-productRouter.get(
-  '/categories',
-  expressAsyncHandler(async (res, req) => {
-    const categories = await Product.find().distinct('category'); //use distinct functions to return unique categories
-    res.send(categories);
-  })
-);
+// productRouter.get(
+//   '/categories',
+//   expressAsyncHandler(async (res, req) => {
+//     const categories = await Product.find().distinct('category'); //use distinct functions to return unique categories
+//     res.send(categories);
+//   })
+// );
 
 //get product by slug in params
 productRouter.get('/slug/:slug', async (req, res) => {
