@@ -23,6 +23,8 @@ import ProfileScreen from './screens/ProfileScreen';
 import Button from 'react-bootstrap/Button';
 import getError from './Util';
 import axios from 'axios';
+import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -39,17 +41,17 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const { data } = await axios.get(`/api/products/categories`);
-  //       setCategories(data);
-  //     } catch (err) {
-  //       toast.error(getError(err));
-  //     }
-  //   };
-  //   fetchCategories();
-  // });
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  });
 
   return (
     <BrowserRouter>
@@ -65,19 +67,21 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
             {/* expand='lg' is to make the navbar fro large screens */}
             <Container>
-              {/* <Button
+              <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
-              </Button> */}
+              </Button>
 
               <LinkContainer to="/">
                 <Navbar.Brand>buye</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               {/* for hamburger menu */}
+
               <Navbar.Collapse id="basic-navbar-nav">
+                <SearchBox />
                 {/* the justify-content-end is to space the logo from the navlinks */}
                 <Nav className="me-auto w-100 justify-content-end">
                   <Link to="/cart" className="nav-link">
@@ -119,7 +123,7 @@ function App() {
           </Navbar>
         </header>
 
-        {/* <div
+        <div
           className={
             sidebarIsOpen
               ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
@@ -133,7 +137,10 @@ function App() {
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  to={`/search?category=${category}`}
+                  to={{
+                    pathname: '/search',
+                    search: `?category=${category}`,
+                  }}
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   <Nav.Link>{category}</Nav.Link>
@@ -141,13 +148,14 @@ function App() {
               </Nav.Item>
             ))}
           </Nav>
-        </div> */}
+        </div>
 
         <main>
           <Container className="mt-4">
             <Routes>
               <Route path="/" element={<HomeScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />

@@ -97,3 +97,7 @@ main {
 .active-nav {
   left: 0px;
 }
+
+.text-bold {
+  font-weight: bold;
+}
