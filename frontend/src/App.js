@@ -39,17 +39,17 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get(`/api/products/categories`);
-        setCategories(data);
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  });
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const { data } = await axios.get(`/api/products/categories`);
+  //       setCategories(data);
+  //     } catch (err) {
+  //       toast.error(getError(err));
+  //     }
+  //   };
+  //   fetchCategories();
+  // });
 
   return (
     <BrowserRouter>
@@ -65,12 +65,12 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
             {/* expand='lg' is to make the navbar fro large screens */}
             <Container>
-              <Button
+              {/* <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
-              </Button>
+              </Button> */}
 
               <LinkContainer to="/">
                 <Navbar.Brand>buye</Navbar.Brand>
@@ -119,7 +119,7 @@ function App() {
           </Navbar>
         </header>
 
-        <div
+        {/* <div
           className={
             sidebarIsOpen
               ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
@@ -141,7 +141,7 @@ function App() {
               </Nav.Item>
             ))}
           </Nav>
-        </div>
+        </div> */}
 
         <main>
           <Container className="mt-4">
