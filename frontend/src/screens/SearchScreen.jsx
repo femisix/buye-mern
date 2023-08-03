@@ -71,7 +71,7 @@ export const ratings = [
   },
 ];
 
-export default function SearchScreen() {
+const SearchScreen = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
@@ -285,4 +285,6 @@ export default function SearchScreen() {
       </Row>
     </div>
   );
-}
+};
+
+export default SearchScreen;
